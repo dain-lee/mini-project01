@@ -44,4 +44,4 @@
 |  | 정은기 | 박상건 | 이다인 | 박세린 | 김영현 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | GitHub | [![eunki96](https://github.com/eunki96.png?width=200px)](https://github.com/eunki96)  | [![CodeYasuo](https://github.com/CodeYasuo.png?width=200px)](https://github.com/CodeYasuo) | [![dain-lee](https://github.com/dain-lee.png?width=200px)](https://github.com/dain-lee)  | [![Serapple](https://github.com/Serapple.png?width=200px)](https://github.com/Serapple)  |   |
-| 역할 | 모의투자 구현 | 회원가입, 로그인 구현 |  |  | 랭킹 시스템 구현 |
+| 역할 | 모의투자 구현 | 회원가입, 로그인 구현 | 시작 페이지 구현 | 메인 페이지 구현 | 랭킹 시스템 구현 |
