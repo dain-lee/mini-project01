@@ -47,7 +47,6 @@ public class GameView {
 				
 			}else if(choice == 3) {
 				int num = controller.buySQ(money, SQQQ);
-				System.out.println(123);
 				countSq += num;
 				money -= (num*SQQQ);
 				
