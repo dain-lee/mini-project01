@@ -43,5 +43,5 @@
 # 팀원
 |  | 정은기 | 박상건 | 이다인 | 박세린 | 김영현 |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| GitHub | [![eunki96](https://github.com/eunki96.png?width=200px)](https://github.com/eunki96)  | [![CodeYasuo](https://github.com/CodeYasuo.png?width=200px)](https://github.com/CodeYasuo) | [![dain-lee](https://github.com/dain-lee.png?width=200px)](https://github.com/dain-lee)  | [![Serapple](https://github.com/Serapple.png?width=200px)](https://github.com/Serapple)  | ![20230509084919](https://user-images.githubusercontent.com/114793764/236960586-6bb5fe45-84cf-4c08-801f-91ab9b0c01e8.png) |
+| GitHub | [![eunki96](https://github.com/eunki96.png?width=200px)](https://github.com/eunki96)  | [![CodeYasuo](https://github.com/CodeYasuo.png?width=200px)](https://github.com/CodeYasuo) | [![dain-lee](https://github.com/dain-lee.png?width=200px)](https://github.com/dain-lee)  | [![Serapple](https://github.com/Serapple.png?width=200px)](https://github.com/Serapple)  | [![kyh234579](https://github.com/kyh234579.png?width=200px)](https://github.com/kyh234579) |
 | 역할 | 모의투자 구현 | 회원가입, 로그인 구현 | 시작 페이지 구현 | 메인 페이지 구현 | 랭킹 시스템 구현 |
