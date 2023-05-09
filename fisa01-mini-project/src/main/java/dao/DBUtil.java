@@ -19,7 +19,7 @@ public class DBUtil {
 	public static Connection getConnection() throws SQLException {
 		String url = "jdbc:mysql://localhost/fisa?characterEncoding=UTF-8&serverTimezone=UTC";
 		String id = "root";
-		String pw = "root"; //try 블록내에서만 사용 가능한 로컬 변수
+		String pw = "whfdjqakfuqek!96"; //try 블록내에서만 사용 가능한 로컬 변수
 		
 		 return DriverManager.getConnection(url, id, pw);
 	}

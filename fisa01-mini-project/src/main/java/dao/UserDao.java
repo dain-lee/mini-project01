@@ -76,27 +76,36 @@ public class UserDao {
 	public static int signUp(String id, String pw) throws SQLException{
 
 		Connection conn = null;
-		PreparedStatement pstmt1 = null;
+//		PreparedStatement pstmt1 = null;
+//		ResultSet rs = null;
+		
 		PreparedStatement pstmt2 = null;		
 
 		try {
 			conn = DBUtil.getConnection();
-//			pstmt1 = conn.prepareStatement("select id from investment_user where id=?");
-//			pstmt1.setString(1, id);
-//			
-//			ResultSet result = pstmt1.executeQuery();
 			
 			try {
+				
+//				pstmt1 = conn.prepareStatement("select * from investment_user where user_id = ?");
+//				pstmt1.setString(1, id);
+//				rs = pstmt1.executeQuery();
+//				if(rs.next()) {
+//					System.out.println("중복된 ID 입니다.");
+//					return -1;
+//				}else {
+//					rs.close();
+//					rs = null;
+//					pstmt1.close();
+//					pstmt1 = null;
+//				}
+				
 				pstmt2 = conn.prepareStatement("insert into investment_user(user_id, user_pw, status) "
 												+ "values (?,?,?)");
 				pstmt2.setString(1, id);
 				pstmt2.setString(2, pw);
 				pstmt2.setInt(3, 1);
 				
-				int result1 = pstmt2.executeUpdate();
-				if(result1 == 1) {
-//					System.out.println("[System] 가입 성공"); 
-				}
+				int result = pstmt2.executeUpdate();
 				
 				UserDto userDto = getUserDto(id);
 				pstmt2.close();
@@ -109,10 +118,35 @@ public class UserDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBUtil.close(conn, pstmt1);
+			DBUtil.close(conn, pstmt2);
 		}
 	 
 		return -1;
+	}
+	
+	public static void convertStatus(String userId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		UserDto userDto = new UserDto();
+		int status = userDto.getStatus();
+		int result;
+		if(status==0) result = 1;
+		else result = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			pstmt = conn.prepareStatement("update investment_user set status=? where user_id=?");
+			pstmt.setInt(1, result);
+			pstmt.setString(2, userId);
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(conn, pstmt);
+		}
+		
 	}
 	
 	public static int login(String userId, String userPw) throws SQLException{
@@ -128,6 +162,7 @@ public class UserDao {
 
 			if (rs.next()) {
 				if(rs.getString(3).equals(userPw)) {
+					convertStatus(userId);
 					return rs.getInt(1);
 				}else {
 					return -1;

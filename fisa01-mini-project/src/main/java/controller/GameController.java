@@ -30,17 +30,6 @@ public class GameController {
 			//예수금(잔액) 데이터 출력
 			System.out.println("\n현금 : " + money + "\n" + 
 					"총액 : " + total + "\n");
-
-//			System.out.println("\nuser_id = " + userDto.getUserId() + "\n" + 
-//					"현재 턴 수 : " + day + "/" + MAX_DAY + "\n" + 
-//					"TQ 개수 : " + countTq + "\n" + 
-//					"SQ 개수 : " + countSq + "\n" + 
-//					"TQ 가격 : " + TQQQ + "\n" + 
-//					"SQ 가격 : " + SQQQ + "\n" + 
-//					"현금 : " + money + "\n" + 
-//					"총액 : " + total + "\n"
-//					);
-			
 			
 			System.out.println("[1] TQQQ 사기" + "\n" + 
 							"[2] TQQQ 팔기" + "\n" + 
@@ -49,12 +38,11 @@ public class GameController {
 							"[5] 넘어가기" + "\n" +
 							"[99] 때려치기" + "\n");
 			System.out.print(">> ");
-			try{
-				Scanner sc = new Scanner(System.in);
-				ret = sc.nextInt();
-			}catch (InputMismatchException e) {
+
+			Scanner sc = new Scanner(System.in);
+			ret = sc.nextInt();
+			if(!(ret>0 && ret<6) && (ret!=99)){
 				System.out.println("[System] 잘못된 입력입니다.");
-				continue;
 			}
 		}while( !(ret>0 && ret<6) && (ret!=99) );
 		
@@ -69,6 +57,8 @@ public class GameController {
 			ret = sc.nextInt();
 			if(ret*TQQQ <= money) {
 				break;
+			}else {
+				System.out.println("[Error] 현재 보유하고 있는 현금으로 매수할 수 없습니다.");
 			}
 		}while(true);
 		return ret;
@@ -82,6 +72,8 @@ public class GameController {
 			ret = sc.nextInt();
 			if(countTq>=ret) {
 				break;
+			}else {
+				System.out.println("[Error] 현재 보유하고 있는 양보다 많습니다.");
 			}
 		}while(true);
 		return ret;
@@ -97,6 +89,8 @@ public class GameController {
 			if(ret*SQQQ <= money) {
 				System.out.println(1233423);
 				break;
+			}else {
+				System.out.println("[Error] 현재 보유하고 있는 현금으로 매수할 수 없습니다.");
 			}
 		}while(true);
 		return ret;
@@ -110,6 +104,8 @@ public class GameController {
 			ret = sc.nextInt();
 			if(countSq>=ret) {
 				break;
+			}else {
+				System.out.println("[Error] 현재 보유하고 있는 양보다 많습니다.");
 			}
 		}while(true);
 		return ret;

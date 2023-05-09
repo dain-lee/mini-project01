@@ -1,12 +1,11 @@
 package view;
 
-import java.sql.Connection;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import controller.UserController;
-import dao.DBUtil;
+import dao.UserDao;
 
 public class StartView {
 
@@ -40,6 +39,8 @@ public class StartView {
 
 			// 반환값이 -1이 아닌 경우 (로그인에 성공한 경우)
 			if (userNo != -1) {
+//				UserDao dao = new UserDao();
+//				dao.convertStatus(userNo);
 				MainView.mainView(userNo);
 				break;
 			}

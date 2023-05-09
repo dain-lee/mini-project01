@@ -8,6 +8,9 @@ import controller.UserController;
 
 public class MainView {
 	public static void mainView(int userNo) {
+		
+		
+		
 		do {
 			System.out.println("\n===== 메인 화면 =====\n");
 			System.out.println("[1] 모의투자 시작");
