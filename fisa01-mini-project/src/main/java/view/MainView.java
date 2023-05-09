@@ -34,7 +34,7 @@ public class MainView {
 				} else if (n == 3) {
 					UserController.logout(userNo);
 				} else {
-					System.out.println("[Error] 올바르지 않은 값을 입력하셨습니다.");
+					System.out.println("[Error] 1, 2, 3 중 입력해주세요.");
 					mainView(userNo);
 				}
 			}catch (InputMismatchException e) {

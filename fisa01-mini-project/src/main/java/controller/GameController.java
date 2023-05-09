@@ -85,9 +85,7 @@ public class GameController {
 		do {
 			System.out.print("몇 주를 살까요? : ");	
 			ret = sc.nextInt();
-			System.out.println(14374);
 			if(ret*SQQQ <= money) {
-				System.out.println(1233423);
 				break;
 			}else {
 				System.out.println("[Error] 현재 보유하고 있는 현금으로 매수할 수 없습니다.");
