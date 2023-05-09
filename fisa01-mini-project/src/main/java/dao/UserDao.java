@@ -76,8 +76,8 @@ public class UserDao {
 	public static int signUp(String id, String pw) throws SQLException{
 
 		Connection conn = null;
-//		PreparedStatement pstmt1 = null;
-//		ResultSet rs = null;
+		PreparedStatement pstmt1 = null;
+		ResultSet rs = null;
 		
 		PreparedStatement pstmt2 = null;		
 
@@ -86,18 +86,18 @@ public class UserDao {
 			
 			try {
 				
-//				pstmt1 = conn.prepareStatement("select * from investment_user where user_id = ?");
-//				pstmt1.setString(1, id);
-//				rs = pstmt1.executeQuery();
-//				if(rs.next()) {
-//					System.out.println("중복된 ID 입니다.");
-//					return -1;
-//				}else {
-//					rs.close();
-//					rs = null;
-//					pstmt1.close();
-//					pstmt1 = null;
-//				}
+				pstmt1 = conn.prepareStatement("select * from investment_user where user_id = ?");
+				pstmt1.setString(1, id);
+				rs = pstmt1.executeQuery();
+				if(rs.next()) {
+					System.out.println("중복된 ID 입니다.");
+					return -1;
+				}else {
+					rs.close();
+					rs = null;
+					pstmt1.close();
+					pstmt1 = null;
+				}
 				
 				pstmt2 = conn.prepareStatement("insert into investment_user(user_id, user_pw, status) "
 												+ "values (?,?,?)");
