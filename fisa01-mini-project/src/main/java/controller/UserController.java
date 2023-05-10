@@ -35,7 +35,6 @@ public class UserController {
 		try {
 			boolean result = UserDao.logout(userNo);
 			if (result == true) {
-//				System.out.println("성공");
 				StartView.startView();
 			}
 		} catch (SQLException e) {

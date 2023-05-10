@@ -44,7 +44,6 @@ public class UserDao {
 	}
 	
 	public static UserDto getUserDtoByUserNo(int userNo) {
-
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -72,9 +71,33 @@ public class UserDao {
 
 		return dto;
 	}
+	
+	public static void convertStatus(String userId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		UserDto userDto = new UserDto();
+		int status = userDto.getStatus();
+		int result;
+		if(status==0) result = 1;
+		else result = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			pstmt = conn.prepareStatement("update investment_user set status=? where user_id=?");
+			pstmt.setInt(1, result);
+			pstmt.setString(2, userId);
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(conn, pstmt);
+		}
+		
+	}
 
 	public static int signUp(String id, String pw) throws SQLException{
-
 		Connection conn = null;
 		PreparedStatement pstmt1 = null;
 		ResultSet rs = null;
@@ -124,30 +147,6 @@ public class UserDao {
 		return -1;
 	}
 	
-	public static void convertStatus(String userId) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		UserDto userDto = new UserDto();
-		int status = userDto.getStatus();
-		int result;
-		if(status==0) result = 1;
-		else result = 0;
-		
-		try {
-			conn = DBUtil.getConnection();
-			pstmt = conn.prepareStatement("update investment_user set status=? where user_id=?");
-			pstmt.setInt(1, result);
-			pstmt.setString(2, userId);
-			pstmt.executeUpdate();
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			DBUtil.close(conn, pstmt);
-		}
-		
-	}
 	
 	public static int login(String userId, String userPw) throws SQLException{
 		Connection conn = null;
@@ -175,7 +174,6 @@ public class UserDao {
 		}
 	}
 	
-	// 로그아웃 DAO
 	public static boolean logout(int userNo) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

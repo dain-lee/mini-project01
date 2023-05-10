@@ -32,6 +32,7 @@ public class MainController {
 			if(input==1){
 				MainView.mainView(user_no);
 			}
+			sc.close();
 		}
 	}
 }

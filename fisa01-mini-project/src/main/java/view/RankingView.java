@@ -17,7 +17,7 @@ public class RankingView {
 			int cnt = 1;
 			
 			for(RankingDto r : list) {
-				System.out.println((cnt++)+". "+ r.getUserId()+" "+r.getTopScore());
+				System.out.println((cnt++) + ". " + r.getUserId() + " " + r.getTopScore());
 			}
 			
 		}

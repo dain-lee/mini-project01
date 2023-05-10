@@ -1,7 +1,6 @@
 package controller;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.Scanner; 
 
 import dao.UserDao;
 import dto.UserDto;
@@ -61,6 +60,7 @@ public class GameController {
 				System.out.println("[Error] 현재 보유하고 있는 현금으로 매수할 수 없습니다.");
 			}
 		}while(true);
+		sc.close();
 		return ret;
 	}
 	
@@ -76,6 +76,7 @@ public class GameController {
 				System.out.println("[Error] 현재 보유하고 있는 양보다 많습니다.");
 			}
 		}while(true);
+		sc.close();
 		return ret;
 	}
 	
@@ -91,6 +92,7 @@ public class GameController {
 				System.out.println("[Error] 현재 보유하고 있는 현금으로 매수할 수 없습니다.");
 			}
 		}while(true);
+		sc.close();
 		return ret;
 	}
 	
@@ -106,6 +108,7 @@ public class GameController {
 				System.out.println("[Error] 현재 보유하고 있는 양보다 많습니다.");
 			}
 		}while(true);
+		sc.close();
 		return ret;
 	}
 	

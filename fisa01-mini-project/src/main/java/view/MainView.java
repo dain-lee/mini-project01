@@ -37,6 +37,7 @@ public class MainView {
 					System.out.println("[Error] 1, 2, 3 중 입력해주세요.");
 					mainView(userNo);
 				}
+				sc.close();
 			}catch (InputMismatchException e) {
 				System.out.println("[System] 잘못된 입력입니다.");
 				continue;

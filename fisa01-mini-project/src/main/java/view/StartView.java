@@ -1,17 +1,14 @@
 package view;
 
-import java.util.InputMismatchException;
+import java.util.InputMismatchException; 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import controller.UserController;
-import dao.UserDao;
 
 public class StartView {
 
-	/*
-	 * 첫 화면 뷰 출력
-	 */
+	
 	public static void printStartView() {
 		System.out.println("\n===== TQQQ, SQQQ 모의 투자 프로그램 =====\n");
 		System.out.println("[1] 로그인");
@@ -19,11 +16,7 @@ public class StartView {
 		System.out.print(">> ");
 	}
 
-	/*
-	 * 로그인 뷰 출력
-	 * UserController의 로그인 로직 수행 후
-	 * return userNo
-	 */
+	
 	public static void printLogInView() {
 		Scanner sc = new Scanner(System.in);
 		int userNo = -1;
@@ -37,10 +30,7 @@ public class StartView {
 
 			userNo = UserController.login(id, pw);
 
-			// 반환값이 -1이 아닌 경우 (로그인에 성공한 경우)
 			if (userNo != -1) {
-//				UserDao dao = new UserDao();
-//				dao.convertStatus(userNo);
 				MainView.mainView(userNo);
 				break;
 			}
@@ -50,11 +40,6 @@ public class StartView {
 		sc.close();
 	}
 
-	/*
-	 * 회원가입 뷰 출력
-	 * UserController의 회원가입 로직 수행 후
-	 * return userNo
-	 */
 	public static void printSignUpView() {
 		Scanner sc = new Scanner(System.in);
 		int userNo = -1;
@@ -67,7 +52,6 @@ public class StartView {
 			String pw = sc.next();
 
 			userNo = UserController.signUp(id, pw);
-			// 반환값이 -1이 아닌 경우 (회원가입에 성공한 경우)
 			if (userNo != -1) {
 				MainView.mainView(userNo);
 				break;

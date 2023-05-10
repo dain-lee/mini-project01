@@ -7,6 +7,7 @@ import dao.UserDao;
 import dto.UserDto;
 
 public class GameView {
+	static final int DAY = 5;
 
 	static int TQQQ;
 	static int SQQQ;
@@ -16,9 +17,7 @@ public class GameView {
 		UserDto userDto = UserDao.getUserDtoByUserNo(choiceUserNo);
 		
 		int userNo = userDto.getUserNo();
-		String userId = userDto.getUserId();
 		int topScore = userDto.getTopScore();
-		int status = userDto.getStatus();
 		
 		TQQQ = 10000;
 		SQQQ = 10000;
@@ -47,6 +46,7 @@ public class GameView {
 				
 			}else if(choice == 3) {
 				int num = controller.buySQ(money, SQQQ);
+				System.out.println(123);
 				countSq += num;
 				money -= (num*SQQQ);
 				
@@ -88,6 +88,6 @@ public class GameView {
 			}else {
 			}
 			
-		}while(day<6);
+		}while(day<DAY+1);
 	}
 }
